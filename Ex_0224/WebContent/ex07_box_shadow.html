@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>box shadow</title>
+		
+		<style>
+			/* border의 바깥쪽 그림자 */
+			p{ width:100px; padding:10px;
+			   background:#eee;}
+			/* box-shadow: x축(+,-) y축(+,-) 번짐정도 컬러 */
+			/* .p1{box-shadow:10px 10px 5px #333;}  */
+			/* .p1{box-shadow:-10px -10px 5px #333;} */
+			
+			/* rgba = red, green, blue, 투명도: 0=> 완전 투명 vs 1=> 불투명 */
+			.p1{box-shadow:10px 10px 5px rgba(255, 0, 0, 0.3);}
+			
+			/* border의 안쪽 그림자*/
+			/* inset x축 y축 번짐정도 두께 색상 */
+			.p2{box-shadow:inset 5px -5px 5px 2px #333;}
+		</style>
+	</head>
+	
+	<body>
+		<p class="p1">안녕</p>
+		<p class="p2">하세요</p>
+	</body>
+</html>

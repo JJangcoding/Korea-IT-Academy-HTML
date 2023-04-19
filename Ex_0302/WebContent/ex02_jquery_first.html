@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery를 시작해보자!</title>
+		
+		<!-- jQuery : js의 검색, 속성, 이벤트등의 작업을 간단하게 처리할 수 있도록 만들어진 언어 -->
+		<!-- jQuery기능을 가져오는 코드1 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.3.js"> -->
+		
+		<!-- jQuery기능을 가져오는 코드2 안에 코드 넣으면 ㅈ됨 -->
+		<script src="js/jquery-3.6.3.min.js"></script>
+		
+		<script>
+			/* jQuery사용을 위한 초기화 영역. 이벤트 관련한 것들은 초기화 영역 안에서 !!!*/
+			$(function(){
+				/* alert("초기 세팅 완료!!"); */
+				$("#btn1").click(function() {
+					alert("버튼 클릭됨");
+				});
+				
+				$("#btn2").click(function(){
+					let msg = $("#msg").val();
+					//alert(msg);
+				$("#msg").val("aaaa");
+				});
+			
+				//버튼3 클릭시 testClick()함수를 호출하자(아이디 접근:#, 클래스 접근:.)
+				$("#btn3").click(testClick);
+			
+				$(".btn4").click(testClick);
+			});
+			
+			function testClick(){
+				alert("버튼3 클릭");
+			}
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		<input id = "msg"><br>
+		<input type = "button" id ="btn1" value="버튼1">
+		<input type = "button" id ="btn2" value="메시지">
+		<input type = "button" id ="btn3" value="test">
+		<input type = "button" class ="btn4" value="test">
+	</body>
+</html>

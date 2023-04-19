@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>자바스크립트의 배열</title>
+		
+		<script>
+		//자료형에 구애받지 않음.
+		let arr1 = [1,2,3,4,5];
+		arr1[5] = 10;//존재하지 않는 index에도 공간할당이 가능
+		arr1[10] = 50;
+		for(let i = 0; i<arr1.length;i++){
+			document.write(arr1[i] + " ")
+		}
+		
+		document.write("<hr>");
+		
+		//int[] arr = new int[3];
+		let arr2 = new Array(3);
+		
+		for( let i = 0; i < arr2.length; i++){
+			arr2[i] = (i+1)*10;
+			document.write(arr2[i],"&nbsp;")}
+		
+		document.write("<hr>");
+		
+		let arr3 = new Array();
+		let first= [10,20];
+		let second = [30,40,50];
+		arr3[0] = first;
+		arr3[1] = second;
+		
+		for (let i = 0; i < arr3.length; i++) {
+			
+			for(let j = 0; j < arr3[i].length; j++){
+				document.write(arr3[i][j], " ");
+			}
+			document.write("<br>");
+		}
+		</script>
+		
+		
+		
+		
+	</head>
+	
+	<body>
+	
+	</body>
+</html>

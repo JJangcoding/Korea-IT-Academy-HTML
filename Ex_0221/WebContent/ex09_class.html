@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>클래스의 깊이</title>
+		
+		<style>
+			.box h2{color:red;}
+			.box p{color:green;}
+			div .box{color:olive;}/* div 안에서 box클래스를 찾기 */
+			span{color:gray;}
+			.box .box2 .s_blue{color:blue;} /*깊이를 줘서 정확히 위치를 알려줌 => 오류방지  */
+			h2 .s_green{color:#0f0;}
+		</style>
+	</head>
+	
+	<body>
+		<div class="box">
+			<h2><span>클래스</span>연습 중입니다</h2>
+			<p>우직한 로디 수줍은 루피</p>
+			
+			<div class = "box2">
+				<h2><span class = "s_blue">클래스</span>연습 중입니다</h2>
+			</div>
+		</div>
+		
+		<h2>클래스<span class= "s_green">연습 중</span>입니다</h2>
+	</body>
+</html>

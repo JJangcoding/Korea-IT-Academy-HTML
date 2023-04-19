@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script>
+			//전역 변수를 선언하면 test1 함수와 test2 함수에서 사용 가능 (일반적인 경우)
+			//But 태그를 검색하는 코드는 절대 전역변수로 지정할 수 없다. => 함수마다 id를 만들고 검색해줘야 함.
+		
+			function test1() {
+				/* funtion키워드로 시작하는 js의 메서드는 반환형을 가지고 있지 않다.  */
+				//alert("버튼 1을 눌렀구나!")
+				let res = document.getElementById("res2");
+				alert(res.value);
+			}
+			
+			function test2(n) {
+				//자바스크립트의 함수는 파라미터 타입을 따로 지정하지 않는다.
+				//alert(n);
+				//id가 res1인 객체를 검색/ 클래스로 검색하는것은 불가능.
+				let res = document.getElementById('res1');
+				res.value = n; //n값으로 value를 채워준다.
+			}
+			
+			function test3() {
+				let h_tag = document.getElementById("h")
+				h_tag.innerHTML = "ㅇㅇ"//value값이 없고 태그 사이에 넣어야 하므로.
+				h_tag.text =""
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<input id = "res1"type = "text" value = "" placeholder="이름을 입력하세요"><br>
+	 	<!-- 타입을 입력하지 않으면 text가 기본값. -->	
+		<input id = "res2" placeholder="값을 넣는 가이드라인"><br>
+		
+		<!-- 버튼1을 클릭하면 test1()메서드가 호출된다 -->
+		<input type = "button" value="버튼1" onclick="test1()">	
+		<!-- 문장을 넘길 때는 작은 따옴표로 묶어줘야한다. -->
+		<input type = "button" value="버튼2" onclick="test2(10)">
+		<input type = "button" value="버튼3" onclick="test3()">
+		<h1 id="h"></h1>
+		
+		
+		
+	</body>
+</html>

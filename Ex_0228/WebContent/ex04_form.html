@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script>
+			function check1() {
+				//f1이라는 id를 가진 form태그를 검색
+				let f = document.getElementById("f1");
+				
+				//검색한 form태그인 f를 통해 id라는 name속성을 가진 태그로 접근
+				let id = f.id.value;
+				let pwd = f.pwd.value;
+				let age = f.age.value;
+				
+				//유효성 체크
+				let check_age = /^[0-9]+$/;
+				if(!check_age.test(age)){
+					alert("나이는 정수로 입력하세요");
+					return;
+				}
+				
+				if( id == ''){
+					alert("아이디를 입력해주세요.");
+					return;
+				}
+				
+				if(pwd == ''){
+					alert("비밀번호를 입력해주세요.");
+					return;
+				}
+				
+				//전송방식
+				//GET: 파라미터를 url에 노출. => 보안성이 떨어지지만 속도는 빠름. String타입
+				//POST: 파라미터를 url에 노출하지 않음. 보안성이 빠르지만 속도는 느림. 배열구조
+				f.method="POST";
+				
+				f.action = "login.jsp";
+				
+				//입력된 데이터(form안에 name으로 설정된 값)을 서버측으로 전송
+				f.submit();
+				
+			}//check1()
+			
+			function check2() {
+				
+				//name이 fff로 지정되어있는 form태그 가져오기 (좀 더 간편)
+				let f = document.fff;
+				let id = f.id.value;
+				let pwd = f.pwd.value;
+				
+				//유효성 체크 했다고 가정.
+				
+				f.method="get"
+				f.action="login.jsp"
+				f.submit();
+				
+			}
+		
+			function check3(f) {
+				//파라미터로 전달될 f객체가 form태그 자체
+				
+				let id = f.id.value;
+				let pwd = f.pw.value;
+				
+				//유효성 체크
+				
+				f.method="get";
+				f.action="login..jsp";
+				
+				//f태그가 가진 모든 name속성을 login.jsp에 파라미터로 전달
+				f.submit();
+			}
+			
+			
+		</script>
+		
+		
+		
+	</head>
+	
+	<body>
+		<!-- 서버로 값을 전송하기 위해 데이터를 스크립트 영역으로 옮겨주기 위한 태그 -->
+		<form id = "f1">
+			<table border = "1">
+				<tr>
+					<th>아이디</th>
+								
+					<!-- name속성은 id와 비슷하지만 input, textArea태그등의 정해진
+					일부 태그에서만 사용이 가능하며, form태그 밖에서 name속성을 정의하는 것은 의미가 없다! -->
+					<td><input name = "id"></td>
+				</tr>
+				
+				<tr>
+					<th>비밀번호</th>
+					<td><input type = "password" name = "pwd"></td>
+				</tr>
+				
+				<tr>
+					<th>나이</th>
+					<td><input name = "age"></td>
+				</tr>
+				
+				<tr>
+					<td colspan= "2" align= "center">
+						<input type="button" value = "폼체크1" onclick="check1();">
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+		<hr>
+			<!--요기에서 method와 action 지정 가능  -->
+		<form name = "fff" method= "get" action= "login.jsp">
+			id: <input name = "id"><br>
+			pwd: <input name = "pwd"><br>
+			<input type="button" value="폼체크2" onclick="check2();">
+		</form>
+		
+		<hr>
+		
+		<form>
+			id:<input name ="id"><br>
+			pwd:<input type = "password" name = "pw"><br>
+			
+			<!-- this는 폼체크 3버튼을 의미한다.
+				 this.form은 나를 포장하고 있는 폼태그를 의미한다 -->
+			<input type = "button" value = "폼체크3" onclick="check3(this.form);">
+		</form>
+	</body>
+</html>

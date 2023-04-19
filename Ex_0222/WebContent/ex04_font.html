@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>font</title>
+		
+		<style>
+			.a1{font-size:20px;}
+			.a2{font-style:italic;}
+			.a3{font-weight:bold;}
+			
+			 /* 1.(지원되지 않는다면) 왼쪽부터 우선순위가 적용된다.
+			 	2.sans-serif는 최후의 수단!  
+			 	3.영어로 입력시에는 쌍따옴표를 쓰지 않는다.*/
+			.a4{font-family:"궁서", "굴림", sans-serif;}
+			
+			/* 소문자 사이즈의 대문자  */
+			.a5{font-variant:small-caps}
+			
+			/* 여러개의 속성을 적용하려면 다음의 순서를 지켜줘야 한다. (안쓰고 싶은 것은 안 넣어도 됨)
+			weight, style, variant, size, family 
+			.a6{font:bold italic small-caps 30px "궁서", sans-serif;}*/
+			
+			/* 속성을 한가지만 사용할것이면 "font:"로 쓰면 안된다!!!
+			ex) font:30px. font:"굴림" (X)
+			font-size:30px font-family:"굴림" (O) */
+			.a6{font: 30px "돋움", sans-serif;}
+		</style>
+		
+		
+	</head>
+	
+	<body>
+		<p class= "a1">글자 크기</p>	
+		<p class= "a2">글자 스타일</p>	
+		<p class= "a3">글자 굵기</p>	
+		<p class= "a4">글꼴</p>	
+		<p class= "a5">The end</p>	
+		
+		<p class= "a6">한줄로 합쳐진 font의 css속성 접근하기</p>
+	</body>
+</html>
